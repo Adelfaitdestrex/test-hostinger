@@ -1,4 +1,19 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gestion simple d'utilisateurs
+
+Application Next.js avec Prisma et une base PostgreSQL hébergée sur Supabase.
+
+## Configuration Supabase
+
+1. Créez un projet sur Supabase.
+2. Copiez les deux chaînes de connexion PostgreSQL dans `.env` à partir de `DATABASE_URL` et `DIRECT_URL` dans `.env.example`.
+3. Générez le client Prisma et créez la table `User` :
+
+```bash
+npm run db:generate
+npm run db:push
+```
+
+Sur Hostinger, ajoutez les mêmes variables `DATABASE_URL` et `DIRECT_URL` dans les variables d'environnement. Ne commitez jamais les mots de passe Supabase.
 
 ## Getting Started
 
