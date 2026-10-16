@@ -1,19 +1,26 @@
 # Gestion simple d'utilisateurs
 
-Application Next.js avec Prisma et une base PostgreSQL hébergée sur Supabase.
+Application Next.js avec Prisma et une base MySQL locale fournie par XAMPP.
 
-## Configuration Supabase
+## Configuration XAMPP en local
 
-1. Créez un projet sur Supabase.
-2. Copiez les deux chaînes de connexion PostgreSQL dans `.env` à partir de `DATABASE_URL` et `DIRECT_URL` dans `.env.example`.
-3. Générez le client Prisma et créez la table `User` :
+1. Démarrez les modules **Apache** et **MySQL** dans XAMPP.
+2. Ouvrez `http://localhost/phpmyadmin` et créez une base appelée `users_db`.
+3. Vérifiez que `.env` contient :
+
+```env
+DATABASE_URL="mysql://root:@127.0.0.1:3306/users_db"
+```
+
+Si votre utilisateur MySQL possède un mot de passe, remplacez la partie vide après `root:`.
+4. Générez le client Prisma et créez la table `User` :
 
 ```bash
 npm run db:generate
 npm run db:push
 ```
 
-Sur Hostinger, ajoutez les mêmes variables `DATABASE_URL` et `DIRECT_URL` dans les variables d'environnement. Ne commitez jamais les mots de passe Supabase.
+Pour le déploiement, remplacez ensuite `DATABASE_URL` par l’URL MySQL de votre hébergeur.
 
 ## Getting Started
 

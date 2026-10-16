@@ -1,0 +1,22 @@
+@baseUrl = http://localhost:3000
+
+### Lister les utilisateurs
+GET {{baseUrl}}/api/users
+
+### Créer un utilisateur
+POST {{baseUrl}}/api/users
+Content-Type: application/json
+
+{
+  "name": "Utilisateur de test",
+  "email": "test-api@example.com"
+}
+
+### Vérifier la validation des données
+POST {{baseUrl}}/api/users
+Content-Type: application/json
+
+{
+  "name": "",
+  "email": "email-invalide"
+}
